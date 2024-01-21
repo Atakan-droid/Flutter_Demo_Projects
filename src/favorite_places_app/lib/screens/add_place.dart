@@ -31,6 +31,22 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
       return;
     }
 
+    if (_pickedImage == null) {
+      showAboutDialog(
+          context: context,
+          applicationName: 'Error',
+          children: [const Text('Please pick an image')]);
+      return;
+    }
+
+    if (_pickedLocation == null) {
+      showAboutDialog(
+          context: context,
+          applicationName: 'Error',
+          children: [const Text('Please pick a location')]);
+      return;
+    }
+
     ref
         .read(userPlacesNotifier.notifier)
         .addPlace(enteredText, _pickedImage!, _pickedLocation!);
