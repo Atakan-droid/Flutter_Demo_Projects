@@ -149,17 +149,16 @@ class _NewItemState extends State<NewItem> {
       final url = Uri.https(
           'shopping-app-max-default-rtdb.europe-west1.firebasedatabase.app',
           'shopping_list.json');
-      final response = await http.post(
-        url,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: json.encode({
-          'name': _enteredName,
-          'quantity': _enteredQuantity,
-          'category': _enteredCategory.title,
-        }),
-      );
+      var x = json.encode({
+        'name': _enteredName,
+        'quantity': _enteredQuantity,
+        'category': _enteredCategory.title,
+      });
+      final response = await http.post(url,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: x);
       if (response.statusCode == 200 || response.statusCode == 201) {
         if (!context.mounted) {
           return;
