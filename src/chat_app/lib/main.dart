@@ -1,4 +1,3 @@
-import 'package:chat_app/firebase_options.dart';
 import 'package:chat_app/screens/auth.dart';
 import 'package:chat_app/screens/chat.dart';
 import 'package:chat_app/screens/splash.dart';
